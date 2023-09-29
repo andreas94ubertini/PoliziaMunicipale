@@ -1,0 +1,40 @@
+﻿@model PoliziaMunicipale.Models.Violazione
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div>
+    <a class="mybtn rounded-pill my-3 px-2" href="/Violazione/ViolazioniIndex"><i class="bi bi-backspace"> Torna alla lista</i></a>
+</div>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal border rounded-1 p-5 mt-3 shadow">
+        <h4 class="text-center">Aggiungi violazione</h4>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Descrizione, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="Inserisci" class="mybtn mt-2 rounded-pill w-100" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<main>
+    <div class="container py-4">
+        @if (TempData["Msg"] != null)
+        {
+        <div class="alert alert-success m-3">
+            @TempData["Msg"]
+        </div>
+        }
+        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+            <div class="container-fluid py-5 position-relative">
+                <h1 class="display-5 fw-bold">Visualizza Verbali</h1>
+                <p class="col-md-8 fs-4">Tutti i verbali suddivisi per anagrafica</p>
+                <img class="d-none d-lg-flex position-absolute top-50 start-50 translate-middle-y" width="400"  src="~/Content/img/bg.png"/>
+                <a href="/Home/GroupByTotVerbali" class="mybtn rounded-pill px-4" >Vedi</a>
+            </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-4">
+                <div class="shadow h-100 p-5 border rounded-3 d-flex flex-column justify-content-evenly">
+                    <h2>Visualizza Punti</h2>
+                    <p>Vedi il totale dei punti decurtati per ogni trasgressore</p>
+                    <a href="/Home/GroupByAnagraficaPunti" class="mybtn rounded-pill px-4 w-50 text-center">Vedi</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="shadow h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column justify-content-evenly">
+                    <h2>Verbali</h2>
+                    <p>Visualizza i dettagli di tutti i verbali con più di 10 punti tolti</p>
+                    <a href="/Home/GroupByPunti" class="mybtn rounded-pill px-4 w-50 text-center" >Vedi</a>
+                </div>
+            </div>
+                        <div class="col-md-4">
+                            <div class="shadow h-100 p-5 bg-body-tertiary border rounded-3 d-flex flex-column justify-content-evenly">
+                                <h2>Verbali</h2>
+                                <p>Visualizza tutti i verbali il cui importo superiore ai 400 euro</p>
+                                <a href="/Home/GroupByImporto" class="mybtn rounded-pill px-4 w-50 text-center" >Vedi</a>
+                            </div>
+                        </div>
+
+        </div>
+
+        <footer class="pt-3 mt-4 text-body-secondary border-top">
+            © 2023
+        </footer>
+    </div>
+</main>

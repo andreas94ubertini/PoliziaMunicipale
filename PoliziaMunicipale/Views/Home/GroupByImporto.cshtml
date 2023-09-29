@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PoliziaMunicipale.Models.VerbaliImporto>
+
+@{
+    ViewBag.Title = "GroupByImporto";
+}
+
+<h2 class="text-center">Ecco i verbali con importo superiore a 400 euro</h2>
+
+<p>
+    @Html.ActionLink("Torna alla home", "Index", new { area = "" }, new { @class = "mybtn p-2 rounded-pill w-100 my-3" })
+</p>
+<table class="table table-striped-columns table-striped table-light mt-3 table-hover border shadow">
+    <tr class="table-danger">
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Punti)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @item.DataViolazione.ToShortDateString()
+        </td>
+        <td>
+            @String.Format("{0:0.00 €}", item.Importo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Punti)
+        </td>
+    </tr>
+}
+
+</table>

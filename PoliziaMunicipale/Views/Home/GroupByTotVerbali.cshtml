@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PoliziaMunicipale.Models.VerbaleTrasgressore>
+
+@{
+    ViewBag.Title = "GroupByTotVerbali";
+}
+
+<h2 class="text-center">Ecco il totale di verbali ricevuti per ogni trasgressore</h2>
+
+@Html.ActionLink("Torna alla home", "Index", new { area = "" }, new {@class="mybtn rounded-pill px-3 my-4"})
+<table class="table table-striped-columns table-striped table-light mt-3 table-hover border shadow">
+    <tr class="table-danger">
+        <th>
+            Id
+        </th>
+        <th>
+            Nome
+        </th>
+        <th>
+            Cognome
+        </th>
+        <th>
+            Totale Verbali
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdAnagrafica)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CognomeT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotVerbali)
+        </td>
+    </tr>
+}
+
+</table>

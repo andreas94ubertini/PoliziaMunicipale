@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Applicazione ASP.NET</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        tr:hover {
+            transform: scale(1.1);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="d-flex flex-wrap justify-content-center align-items-center px-5 mb-4 border-bottom">
+        <div class="d-flex flex-column align-items-center text-center">
+            <div class="d-flex justify-content-center">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <img src="~/Content/img/pm.png" alt="logo" class="img-fluid" width="400" />
+                </a>
+            </div>
+            <ul class="nav nav-pills flex-grow-1 d-flex gap-5">
+                <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link text-light" })</li>
+                <li class="nav-item">@Html.ActionLink("Nuova Anagrafica", "CreateAnagrafica", "Anagrafica", new { area = "" }, new { @class = "nav-link text-light" })</li>
+                <li class="nav-item">@Html.ActionLink("Lista Violazioni", "ViolazioniIndex", "Violazione", new { area = "" }, new { @class = "nav-link text-light" })</li>
+                <li class="nav-item">@Html.ActionLink("Verbale", "VerbaleIndex", "Verbale", new { area = "" }, new { @class = "nav-link text-light" })</li>
+            </ul>
+        </div>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

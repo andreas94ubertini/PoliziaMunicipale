@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PoliziaMunicipale.Models.VerbaliAnagrafica>
+
+@{
+    ViewBag.Title = "GroupByAnagraficaPunti";
+}
+
+<h2 class="text-center">Ecco il totale dei punti sottratti per ogni trasgressore</h2>
+
+
+    @Html.ActionLink("Torna alla home", "Index", new { area = "" }, new {@class="mybtn rounded-pill px-3 my-4"})
+
+<table class="table table-striped-columns table-striped table-light mt-3 table-hover border shadow">
+    <tr class="table-danger">
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            Totale Punti Sottratti
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PuntiTotali)
+        </td>
+
+    </tr>
+}
+
+</table>

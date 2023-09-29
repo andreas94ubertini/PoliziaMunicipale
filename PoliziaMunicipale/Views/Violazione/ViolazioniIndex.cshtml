@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PoliziaMunicipale.Models.Violazione>
+
+@{
+    ViewBag.Title = "ViolazioniIndex";
+}
+
+<h2 class="text-center">Elenco violazioni attuali</h2>
+
+<div>
+    @Html.ActionLink("Inserisci nuova violazione", "Create", new { area = "" }, new { @class = "mybtn rounded-pill px-3 my-4" })
+    @Html.ActionLink("Torna alla home", "Index", "Home", new { area = "" }, new { @class = "mybtn rounded-pill px-3 my-4" })
+</div>
+@if (TempData["Msg"] != null)
+{
+    <div class="alert alert-success">
+
+        @TempData["Msg"]!
+
+    </div>}
+<table class="table table-striped-columns table-striped table-light mt-3 table-hover border">
+    <tr class="table-danger">
+        <th>
+            @Html.DisplayNameFor(model => model.IdViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdViolazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrizione)
+            </td>
+        </tr>
+    }
+
+</table>

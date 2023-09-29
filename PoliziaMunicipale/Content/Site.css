@@ -1,0 +1,20 @@
+﻿header {
+    background-color: rgb(236,44,36);
+}
+
+.mybtn {
+    background-color: rgb(236,44,36);
+    border: none;
+    color: white;
+    text-decoration: none;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+    .mybtn:hover {
+        background-color: rgb(192,6,3);
+        border: none;
+        color: white;
+    }
+
+
